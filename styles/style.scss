@@ -235,3 +235,43 @@ a {
   }*/
 }
 /*end section */
+.rowul {
+  display: flex;
+  justify-content: center;
+  gap: 15rem;
+  box-shadow: 0 1rem 0.8rem 0 rgba(147, 145, 145, 0.35);
+}
+.content {
+  display: flex;
+  gap: 2rem;
+  justify-items: center;
+  border: calc(var(--default-padding) * 2);
+}
+.border {
+  border-left: 2px solid rgba(238, 239, 242, 1);
+  border-right: 2px solid rgba(238, 239, 242, 1);
+}
+.rowli {
+  justify-content: center;
+
+  &__num {
+    font-weight: bold;
+    font-size: 2.5rem;
+  }
+  &__name {
+    font-weight: 400;
+    font-size: 2rem;
+    color: var(--color-grayish-blue);
+  }
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  &__li {
+    justify-content: center;
+  }
+  &__p {
+    display: inline-block;
+  }
+}
