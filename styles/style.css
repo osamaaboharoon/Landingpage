@@ -1,9 +1,8 @@
-@charset "UTF-8";
 :root {
   --color-soft-blue: #5368df;
   --color-soft-red: #fa5757;
   --color-grayish-blue: #9194a1;
-  --color-very-dark-blue: #252b46;
+  --color-very-dark-blue: #0b132a;
   --color-off-white: #f7f7f7;
   --default-padding: 2rem;
   --default-radius: 0.4rem;
@@ -381,7 +380,7 @@ a {
   background-color: var(--color-soft-red);
 }
 
-/* سسس */
+/*  */
 .new-section {
   background: var(--color-off-white);
   padding: var(--default-padding);
