@@ -415,7 +415,7 @@ a {
     transition: background-color var(--timing-animation);
 
     &:hover {
-      background-color: darken(var(--color-soft-red), 10%);
+      background-color: var(--color-soft-red);
     }
   }
 }
@@ -446,7 +446,7 @@ a {
     transition: background var(--timing-animation);
 
     &:hover {
-      background: darken(var(--color-soft-red), 10%);
+      background: var(--color-soft-red);
     }
   }
 }
