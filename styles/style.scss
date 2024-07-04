@@ -440,6 +440,9 @@ a {
 .footer {
   color: var(--color-off-white);
   padding: var(--default-padding);
+  .footer__socials {
+    margin-top: var(--default-padding);
+  }
 
   .footer__content {
     display: flex;
@@ -454,9 +457,6 @@ a {
     }
 
     .footer__logo {
-      img {
-        margin-bottom: var(--default-padding);
-      }
       p {
         color: var(--color-grayish-blue);
       }

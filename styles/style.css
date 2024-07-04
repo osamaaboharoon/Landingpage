@@ -405,6 +405,9 @@ a {
   color: var(--color-off-white);
   padding: var(--default-padding);
 }
+.footer .footer__socials {
+  margin-top: var(--default-padding);
+}
 .footer .footer__content {
   display: flex;
   justify-content: space-between;
@@ -415,9 +418,6 @@ a {
 .footer .footer__content > div {
   flex: 1;
   margin: var(--default-padding);
-}
-.footer .footer__content .footer__logo img {
-  margin-bottom: var(--default-padding);
 }
 .footer .footer__content .footer__logo p {
   color: var(--color-grayish-blue);
