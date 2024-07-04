@@ -1,3 +1,4 @@
+@import "mixins";
 :root {
   --color-soft-blue: #5368df;
   --color-soft-red: #fa5757;
@@ -78,40 +79,71 @@ a {
   box-shadow: 0 2.4rem 3.8rem 0.1rem rgba(245, 56, 56, 0.35);
 }
 .header {
+  padding: 3rem 0;
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  /*position: sticky;*/
+  top: 0px;
+  z-index: 1;
+
+  @include mobile-tablet {
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: var(--default-padding);
+  }
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  border-bottom: 0.1rem solid var(--color-input-border);
+  height: 100%;
+  width: 100vw;
+  top: 0;
+  z-index: -1;
+  background-color: var(--color-background);
+}
+
+.navigation {
+  transition: var(--transition-timing);
+}
+
+.navigation__list {
+  display: flex;
   gap: 2rem;
-  margin-top: var(--default-padding);
-  margin-bottom: calc(var(--default-padding) * 2);
-}
 
-.logoContent {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  font-weight: 500;
-
-  &__logo {
-    width: 14rem;
-    max-width: 100%;
+  @include mobile {
+    gap: 1rem;
+    font-size: 1.4rem;
   }
 }
 
-.links {
-  display: flex;
-  align-items: center;
-  gap: var(--default-padding);
+.navigation__link:link,
+.navigation__link:visited {
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+}
 
-  &__link {
-    color: var(--color-very-dark-blue);
-    transition: color var(--timing-animation) ease-in-out;
+.navigation__link:hover,
+.navigation__link:active {
+  text-decoration: underline;
+  color: var(--color-text);
+}
 
-    &:hover {
-      color: var(--color-soft-red);
-    }
-  }
+.burger-menu__checkbox {
+  display: none;
+}
+
+.container:has(.bio:target) .navigation__bio,
+.container:has(.skills:target) .navigation__skills,
+.container:has(.media:target) .navigation__media,
+.container:has(.projects:target) .navigation__projects,
+.container:has(.clients:target) .navigation__clients,
+.container:has(.contact:target) .navigation__contact {
+  color: var(--color-blue);
+  text-decoration: underline;
+  font-weight: var(--font-weight-bold);
 }
 
 .sign {
@@ -139,6 +171,11 @@ a {
   gap: calc(var(--default-padding) * 4);
   margin: var(--default-padding) 0;
 
+  @include mobile-tablet {
+    flex-direction: column;
+    gap: var(--default-padding);
+  }
+
   &--one--column {
     flex-direction: column;
     gap: calc(var(--default-padding) / 2);
@@ -153,6 +190,12 @@ a {
     flex: 1;
     flex-direction: column;
     gap: calc(var(--default-padding) / 2);
+
+    @include mobile-tablet {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
   }
 
   &:nth-of-type(1) &__title {
@@ -176,6 +219,11 @@ a {
   &__imageContent {
     display: flex;
     flex: 1;
+    @include mobile-tablet {
+      display: flex;
+      flex: 1;
+      order: -1;
+    }
   }
 
   &__buttons {
@@ -205,18 +253,37 @@ a {
   justify-content: center;
   gap: 9rem;
   box-shadow: 0 1rem 0.8rem 0 rgba(147, 145, 145, 0.35);
-  margin-top: calc(var(--default-padding) * 2);
+  margin-top: calc(var(--default-padding) * 2) 0;
+
+  @include tablet {
+    gap: 0;
+  }
+  @include mobile {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
   .emg {
     max-width: 100%;
     height: auto;
+
+    @include mobile-tablet {
+      max-width: 5.5rem;
+      max-height: 5.5rem;
+    }
   }
 }
 
 .content {
   display: flex;
-  gap: 2rem;
+  gap: var(--default-padding);
   justify-items: center;
   padding: calc(var(--default-padding) * 2);
+
+  @include mobile-tablet {
+    padding: var(--default-padding);
+  }
 }
 
 .border {
@@ -224,6 +291,14 @@ a {
   border-right: 2px solid rgba(238, 239, 242, 1);
   padding-left: 12rem;
   padding-right: 12rem;
+
+  @include mobile-tablet {
+    gap: 0;
+    padding: var(--default-padding);
+  }
+  @include mobile {
+    border-right: 0;
+  }
 }
 
 .rowli {
@@ -265,6 +340,11 @@ a {
   margin: 4rem 0;
   flex-wrap: wrap;
   gap: calc(var(--default-padding) * 4);
+
+  @include mobile-tablet {
+    flex-wrap: wrap;
+    text-align: center;
+  }
 }
 .card {
   display: flex;
@@ -274,6 +354,10 @@ a {
   padding: var(--default-padding);
   border: 2px solid rgba(238, 239, 242, 1);
   border-radius: var(--default-radius);
+
+  @include mobile-tablet {
+    width: 100%;
+  }
 
   &:last-of-type {
     border: 2px solid var(--color-soft-red);
@@ -292,11 +376,22 @@ a {
 
 /* end S list */
 
+.bigimg {
+  @include mobile-tablet {
+    display: none;
+  }
+}
 /* s slider */
+
 .imgs {
   display: flex;
   align-items: center;
   gap: var(--default-padding);
+
+  @include mobile-tablet {
+    display: flex;
+    flex-direction: column;
+  }
 }
 /* */
 /**/
@@ -318,6 +413,10 @@ a {
     flex-wrap: nowrap;
     overflow-x: auto;
     gap: var(--default-padding);
+    @include mobile-tablet {
+      flex-wrap: wrap;
+      text-align: center;
+    }
   }
 
   .testimonial {
@@ -328,8 +427,13 @@ a {
     height: 20rem;
     display: flex;
     flex-direction: column;
-
     text-align: left;
+
+    @include tablet {
+      width: 80%;
+      flex-direction: column;
+      margin-left: calc(var(--default-padding) * 4);
+    }
     .info {
       display: flex;
       gap: var(--default-padding);
@@ -413,12 +517,19 @@ a {
   padding: var(--default-padding);
   text-align: center;
   box-shadow: 0 1rem 0.8rem 0 rgba(147, 145, 145);
-
   max-width: 100rem;
   justify-content: space-between;
   align-items: center;
   margin-left: 12rem;
   margin-bottom: -10rem;
+
+  @include tablet {
+    margin: 0;
+  }
+  @include mobile {
+    flex-direction: column;
+    margin: 0;
+  }
 
   &__row {
     display: flex;
@@ -442,6 +553,11 @@ a {
   padding: var(--default-padding);
   .footer__socials {
     margin-top: var(--default-padding);
+
+    @include mobile-tablet {
+      display: flex;
+      max-width: 5rem;
+    }
   }
 
   .footer__content {

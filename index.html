@@ -15,22 +15,41 @@
   </head>
   <body>
     <div class="container">
-      <div class="header">
+      <header class="header">
         <div class="logoContent">
           <img class="logoContent__logo" src="./assets/Logo.svg" alt="logo" />
         </div>
-        <nav class="links">
-          <a href="#about" class="links__link">About</a>
-          <a href="#features" class="links__link">Features</a>
-          <a href="#pricing" class="links__link">Pricing</a>
-          <a href="#testimonials" class="links__link">Testimonials</a>
-          <a href="#contact" class="links__link">Contact</a>
+
+        <label class="burger-menu" for="menu">
+          <div class="burger-menu__bar"></div>
+          <div class="burger-menu__bar"></div>
+          <div class="burger-menu__bar"></div>
+        </label>
+        <input id="menu" class="burger-menu__checkbox" type="checkbox" />
+        <nav class="navigation">
+          <ul class="navigation__list">
+            <li>
+              <a href="#about" class="links__link">About</a>
+            </li>
+            <li>
+              <a href="#features" class="links__link">Features</a>
+            </li>
+            <li>
+              <a href="#pricing" class="links__link">Pricing</a>
+            </li>
+            <li>
+              <a href="#testimonials" class="links__link">Testimonials</a>
+            </li>
+            <li>
+              <a href="#contact" class="links__link">Contact</a>
+            </li>
+          </ul>
         </nav>
         <div class="sign">
           <a href="#about" class="sign__in">Sign In</a>
           <a href="#features" class="sign__up">Sign Up</a>
         </div>
-      </div>
+      </header>
 
       <section id="about" class="section hero">
         <div class="section__content">
